@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText;
     private String string;
 
-
+    void testBranch() {
+        Log.d("test","測試分支功能");
+    }
     //use singleTask activity and use this method onNewIntent
     @Override
     protected void onNewIntent(Intent intent) {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
 
         //if have restore data get the data
+        //test
         if (savedInstanceState!=null){
             editText.setText(string);
         }
