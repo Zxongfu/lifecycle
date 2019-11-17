@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
 
         //if have restore data get the data
-        if (savedInstanceState!=null){
-            editText.setText(string);
-        }
+//        if (savedInstanceState!=null){
+//            editText.setText(string);
+//        }
 
         button =findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +96,20 @@ public class MainActivity extends AppCompatActivity {
     //if rotate save data
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
-
-        outState.putString("string",string);
-
+        Log.d(tag,"--onSaveInstanceState--");
         super.onSaveInstanceState(outState);
-
+        outState.putString("string",string);
     }
 
+    //get data google recommend
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
 
+        Log.d(tag,"--onRestoreInstanceState--");
+
+        String a= savedInstanceState.getString("string");
+        editText.setText(a);
+
+    }
 }
